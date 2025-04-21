@@ -7,19 +7,17 @@ function useNavData(pageId) {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const API_BASE = 'https://fly-plume.localsite.io/wp-json/wp/v2';
+
   useEffect(() => {
     const fetchNavData = async () => {
       try {
         // Requisição para obter as categorias
-        const categoriesResponse = await axios.get(
-          'https://psel-monks-analista-renanfochetto.local/wp-json/wp/v2/categories'
-        );
+        const categoriesResponse = await axios.get(`${API_BASE}/categories`);
         setCategories(categoriesResponse.data);
 
         // Requisição para obter a logo a partir da página
-        const pageResponse = await axios.get(
-          `https://psel-monks-analista-renanfochetto.local/wp-json/wp/v2/pages/${pageId}`
-        );
+        const pageResponse = await axios.get(`${API_BASE}/pages/${pageId}`);
 
         // Extrai o conteúdo da página
         const content = pageResponse.data.content.rendered;
@@ -41,7 +39,6 @@ function useNavData(pageId) {
     };
 
     fetchNavData();
-
   }, [pageId]);
 
   return { categories, logoUrl, isLoading, error };
