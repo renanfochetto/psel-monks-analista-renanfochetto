@@ -1,0 +1,145 @@
+:root {
+  --primary-color: #7d26c9;
+  --secondary-color: #dfbbfe;
+  --background-purple: #3c0c60;
+  --primary-white: #eae8e4;
+  --secondary-white: #ffffff;
+  --primary-black: #2d2d2d;
+  --background-gray: #dfdcd5;
+  --background-white: #f4f4f4;
+  --decorative-font: 'Inter', sans-serif;
+  font-family: 'Helvetica Neue', sans-serif;
+  color: var(--primary-black);
+}
+
+body {
+  max-width: 1366px;
+  margin: 0 auto;
+  background-color: var(--primary-white);
+  box-sizing: border-box;
+}
+
+h3 {
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  padding: 4px 0;
+}
+
+button {
+  flex: 0;
+  width: auto;
+  align-self: center;
+  border-radius: 4px;
+  background-color: var(--secondary-color);
+  color: var(--primary-black);
+  padding: 8px 40px;
+  border: none;
+  font-family: var(--decorative-font), sans-serif;
+  line-height: 24px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--primary-color);
+  color: var(--primary-white);
+}
+
+button:active:not(:disabled) {
+  transform: scale(0.9);
+}
+
+button:disabled {
+  background-color: var(--secondary-color);
+  color: #2d2d2d;
+  opacity: 0.5;
+  transform: none;
+  cursor: not-allowed;
+}
+
+#photo-item1 {
+  grid-area: 3 / 1 / 6 / 2;
+}
+
+#photo-item2 {
+  grid-area: 2 / 2 / 4 / 3;
+}
+
+#photo-item3 {
+  grid-area: 4 / 2 / 6 / 3;
+}
+
+input:valid {
+  border-color: green;
+}
+
+input:invalid {
+  border-color: red;
+}
+
+input:focus {
+  outline: 2px solid var(--primary-color);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--primary-white);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--background-gray);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--background-purple);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+}
+
+.customToast {
+  background-color: var(--secondary-color);
+  color: var(--primary-black);
+  font-family: var(--decorative-font), sans-serif;
+  font-size: 18px;
+  padding: 12px;
+  transition: opacity 0.3s ease;
+}
+
+.toastError {
+  background-color: var(--primary-black);
+  color: var(--secondary-color);
+  font-family: var(--decorative-font), sans-serif;
+  font-size: 18px;
+  padding: 12px;
+  transition: opacity 0.3s ease;
+}
+
+.customProgressBar {
+  background-color: var(--primary-black);
+}
+
+.toast-progress-bar {
+  background-color: var(--secondary-color);
+}
+
+@media (max-width: 360px) {
+  body {
+    width: 360px;
+  }
+}

@@ -1,0 +1,51 @@
+.formField {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    gap: 32px;
+}
+
+.formFieldInput {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    width: 100%;
+}
+
+.inputRow {
+    display: flex;
+    flex-direction: column;
+    gap: 8px
+}
+
+.formFieldInput input {
+    border: none;
+    border-radius: 8px;
+    width: 392px;
+    font-weight: 100;
+    font-size: 20px;
+    line-height: 30px;
+    padding: 4px 12px;
+    color: #777;
+    outline: none;
+}
+
+@media(max-width: 360px) {
+    .formFieldInput {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .formFieldInput input {
+        width: 100%;
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .inputRow {
+        width: 100%;
+        gap: 8px;
+    }
+}

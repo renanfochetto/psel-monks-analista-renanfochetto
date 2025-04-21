@@ -1,0 +1,46 @@
+.containerCards {
+    width: 100%;
+    margin: 64px 0 32px;
+}
+
+.cardsTitle {
+    margin-bottom: 8px;
+}
+
+.cardsDescription {
+    font-size: 24px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    padding: 2px 0;
+}
+
+.cardsWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    margin: 40px 0 32px;
+}
+
+@media (max-width: 360px) {
+    .containerCards {
+        margin: 32px 0;
+        width: 100%;
+    }
+
+    .cardsTitle {
+        font-size: 24px;
+        margin-bottom: 8px;
+    }
+
+    .cardsDescription {
+        font-size: 16px;
+        line-height: 17px;
+    }
+
+    .cardsWrapper {
+        flex-direction: column;
+        margin: 16px auto;
+        gap: 16px;
+    }
+}

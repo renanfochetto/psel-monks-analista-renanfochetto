@@ -1,0 +1,77 @@
+.containerHeader {
+    background-image: url("../../assets/banner-topo.webp");
+    height: 480px;
+    padding: 24px 80px;
+    color: var(--primary-white);
+}
+
+.headerBanner {
+    margin-bottom: 24px;
+    width: 700px;
+}
+
+.headerBannerContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bannerContent {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 37px;
+}
+
+.bannerContentTitle {
+    font-size: 48px;
+    font-weight: 700;
+    margin-top: 60px;
+    letter-spacing: 1.8px;
+    line-height: 120%;
+}
+
+.bannerContentText {
+    font-size: 24px;
+    font-weight: 100;
+    letter-spacing: 1.8px;
+    line-height: 110%;
+}
+
+.headerBannerContent img {
+    width: 72px;
+    height: 100px;
+}
+
+@media (max-width: 360px) {
+    .containerHeader {
+        background-image: url("../../assets/banner360.webp");
+        height: 360px;
+        width: 100%;
+        justify-content: left;
+        padding: 16px 24px;
+    }
+
+    .headerBanner {
+        width: 185px;
+    }
+
+    .bannerContentTitle {
+        margin-top: 32px;
+        font-size: 24px;
+        font-weight: 700;
+    }
+
+    .bannerContentText {
+        width: 180px;
+        font-size: 16px;
+        line-height: 18px;
+        font-weight: 100;
+        letter-spacing: 0.4px;
+    }
+
+    .headerBannerContent img {
+        display: none;
+    }
+}

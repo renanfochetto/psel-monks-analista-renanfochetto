@@ -1,0 +1,71 @@
+.formFieldSecurity {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.validationOperation {
+    color: var(--primary-black);
+    font-weight: 500;
+    align-self: center;
+}
+
+.securityText {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 36px;
+}
+
+
+.securityValidation {
+    background-color: var(--background-gray);
+    border-radius: 8px;
+    padding: 9px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 600;
+    gap: 24px;
+}
+
+.generatedNumber {
+    color: var(--primary-color);
+}
+
+.securityResult input {
+    border: none;
+    border-radius: 8px;
+    font-weight: 100;
+    font-size: 20px;
+    line-height: 30px;
+    padding: 4px 12px;
+    color: #777;
+    outline: none;
+    width: 234px;
+}
+
+@media(max-width: 360px) {
+    .formFieldSecurity {
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .securityText {
+        font-size: 20px;
+        line-height: 30px;
+        margin-bottom: 16px;
+    }
+
+    .securityValidation {
+        gap: 8px;
+        align-items: center;
+    }
+
+    .securityResult input {
+        font-size: 16px;
+        width: 110px;
+    }
+}

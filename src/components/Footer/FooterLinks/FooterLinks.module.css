@@ -1,0 +1,32 @@
+.containerFooterLinks {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 40px auto 0;
+    gap: 40px;
+    color: var(--primary-white);
+}
+
+.footerSocials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.footerSocials a {
+    transition: transform 0.2s ease;
+}
+
+.footerSocials a:active{
+    transform: scale(0.8);
+}
+
+@media(max-width: 360px) {
+    .containerFooterLinks {
+        padding: 0 24px;
+        width: 100%;
+        flex-direction: column;
+        margin: 24px 0 0;
+    }
+}

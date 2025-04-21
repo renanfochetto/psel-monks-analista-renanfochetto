@@ -1,0 +1,44 @@
+import { useState, useEffect } from 'react';
+
+const useTags = () => {
+  const [tags, setTags] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchTags = async () => {
+      try {
+        const response = await fetch('http://psel-monks-analista-renanfochetto.local/wp-json/wp/v2/tagsection?per_page=100');
+
+        // Verifica se a resposta da API foi bem-sucedida
+        if (!response.ok) {
+          throw new Error('Falha ao buscar as tags');
+        }
+
+        const data = await response.json();
+
+        // Valida se a estrutura dos dados está conforme esperado
+        if (!Array.isArray(data)) {
+          throw new Error('Os dados retornados não são um array');
+        }
+
+        const formattedTags = data
+          .map(item => item.acf?.tag)
+          .filter(tag => tag)
+          .sort((a, b) => a.localeCompare(b)); // Ordena alfabeticamente
+
+        setTags(formattedTags);
+      } catch (err) {
+        setError(`Erro ao carregar as tags: ${err.message || 'Erro desconhecido'}`);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchTags();
+  }, []);
+
+  return { tags, loading, error };
+};
+
+export default useTags;

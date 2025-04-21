@@ -1,0 +1,151 @@
+.headerMenu {
+    display: none;
+}
+
+.headerNav {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 48px;
+}
+
+.headerNav a img {
+    transition: transform 0.2s ease;
+}
+
+.headerNav a:active img {
+    transform: scale(0.9);
+}
+
+.headerNavList {
+    font-size: 20px;
+    font-weight: 100;
+    display: flex;
+    color: var(--primary-white);
+    gap: 8px;
+}
+
+.headerNavList li:last-child {
+    display: none;
+}
+
+.headerNavList.active li:last-child {
+    display: block;
+}
+
+.headerNavList li a {
+    color: var(--primary-white);
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.headerNavList li a:hover {
+    font-weight: 200;
+}
+
+.headerNavList li:active {
+    transform: scale(0.95);
+}
+
+.headerNavList li {
+    width: 141px;
+}
+
+@media (max-width: 360px) {
+    nav img {
+        width: 93px;
+        height: 16px;
+    }
+
+    .headerMenu {
+        display: block;
+        cursor: pointer;
+        z-index: 21;
+    }
+
+    .icon {
+        transition: transform 0.3s ease;
+        width: 20px;
+        height: 20px;
+    }
+
+    .menuIcon {
+        display: block;
+    }
+
+    .closeIcon {
+        display: none;
+    }
+
+    .headerNav {
+        position: relative;
+        gap: 16px;
+    }
+
+    .headerNav a {
+        z-index: 21;
+    }
+
+    .headerNavList {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 30px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        padding: 75px 60px;
+        margin: 0;
+        list-style: disc;
+        background-image: url("../../../assets/menu-open.webp");
+        background-repeat: no-repeat;
+        z-index: 20;
+        line-height: 12px;
+        opacity: 0;
+        transform: translateY(-20px);
+        pointer-events: none;
+        transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .headerNavList li {
+        color: var(--primary-black);
+        width: auto;
+        list-style: disc;
+    }
+
+    .headerNavList li:last-child {
+        list-style: none;
+        margin: 75px 90px;
+    }
+
+    .headerNavList img {
+        cursor: pointer;
+        width: 59px;
+        height: 84px;
+    }
+
+    .headerNavList li a {
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--primary-black);
+    }
+
+    .headerNavList li a:hover {
+        font-size: 21px;
+        font-weight: 700;
+    }
+
+    .headerNav.active {
+        background-image: none;
+    }
+
+    .headerNavList.active {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+}

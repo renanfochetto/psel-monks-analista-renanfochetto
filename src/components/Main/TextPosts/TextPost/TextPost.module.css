@@ -1,0 +1,45 @@
+.contentCard {
+    background-color: var(--secondary-white);
+    border: 2px solid var(--secondary-color);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 24px;
+    padding: 24px;
+    box-shadow: 0 2px 24px rgba(0, 0, 0, 0.1);
+}
+
+.contentCardTitle {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 36px;
+}
+
+.contentCardDescription {
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 28px;
+}
+
+@media(max-width: 360px) {
+    .contentCard {
+        gap: 16px;
+    }
+
+    .contentCardTitle {
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 30px;
+    }
+
+    .contentCardDescription {
+        font-size: 16px;
+        font-weight: 200;
+        line-height: 24px;
+    }
+
+    .contentCardButton {
+        margin: 8px 0;
+    }
+}

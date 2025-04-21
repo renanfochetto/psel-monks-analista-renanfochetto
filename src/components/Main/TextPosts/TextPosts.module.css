@@ -1,0 +1,14 @@
+.containerContentCards {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin: 64px 0;
+}
+
+@media (max-width: 360px) {
+    .containerContentCards {
+        flex-direction: column;
+        gap: 16px;
+    }
+}
