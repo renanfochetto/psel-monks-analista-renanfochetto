@@ -12,13 +12,13 @@ function useNavData(pageId) {
       try {
         // Requisição para obter as categorias
         const categoriesResponse = await axios.get(
-          'http://psel-monks-analista-renanfochetto.local/wp-json/wp/v2/categories'
+          'https://psel-monks-analista-renanfochetto.local/wp-json/wp/v2/categories'
         );
         setCategories(categoriesResponse.data);
 
         // Requisição para obter a logo a partir da página
         const pageResponse = await axios.get(
-          `http://psel-monks-analista-renanfochetto.local/wp-json/wp/v2/pages/${pageId}`
+          `https://psel-monks-analista-renanfochetto.local/wp-json/wp/v2/pages/${pageId}`
         );
 
         // Extrai o conteúdo da página

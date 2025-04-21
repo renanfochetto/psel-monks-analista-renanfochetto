@@ -9,7 +9,7 @@ const useFooterCategories = () => {
     const fetchCategories = async () => {
       try {
         const response = await fetch(
-          'http://psel-monks-analista-renanfochetto.local/wp-json/wp/v2/footercategory'
+          'https://psel-monks-analista-renanfochetto.local/wp-json/wp/v2/footercategory'
         );
 
         if (!response.ok) {

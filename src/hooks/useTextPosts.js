@@ -8,7 +8,7 @@ const useTextPosts = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch('http://psel-monks-analista-renanfochetto.local/wp-json/wp/v2/textpost');
+        const response = await fetch('https://psel-monks-analista-renanfochetto.local/wp-json/wp/v2/textpost');
 
         // Verifica se a resposta foi bem-sucedida
         if (!response.ok) {

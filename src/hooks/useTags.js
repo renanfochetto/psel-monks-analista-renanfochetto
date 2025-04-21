@@ -8,7 +8,7 @@ const useTags = () => {
   useEffect(() => {
     const fetchTags = async () => {
       try {
-        const response = await fetch('http://psel-monks-analista-renanfochetto.local/wp-json/wp/v2/tagsection?per_page=100');
+        const response = await fetch('https://psel-monks-analista-renanfochetto.local/wp-json/wp/v2/tagsection?per_page=100');
 
         // Verifica se a resposta da API foi bem-sucedida
         if (!response.ok) {

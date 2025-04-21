@@ -8,7 +8,7 @@ const useSvgHook = () => {
   useEffect(() => {
     const fetchSvgs = async () => {
       try {
-        const response = await fetch('http://psel-monks-analista-renanfochetto.local/wp-json/wp/v2/svgfooter');
+        const response = await fetch('https://psel-monks-analista-renanfochetto.local/wp-json/wp/v2/svgfooter');
 
         // Verifique se a resposta da API é válida
         if (!response.ok) {

@@ -11,7 +11,7 @@ const useFooterImage = () => {
     const fetchImage = async () => {
       try {
         // Busca o primeiro item do CPT 'decorativeimage'
-        const response = await fetch('http://psel-monks-analista-renanfochetto.local/wp-json/wp/v2/decorativeimage?per_page=1');
+        const response = await fetch('https://psel-monks-analista-renanfochetto.local/wp-json/wp/v2/decorativeimage?per_page=1');
         const data = await response.json();
 
         if (!Array.isArray(data) || data.length === 0) return;
@@ -22,7 +22,7 @@ const useFooterImage = () => {
         if (!imageId) return;
 
         // Busca a URL da imagem pelo ID
-        const mediaResponse = await fetch(`http://psel-monks-analista-renanfochetto.local/wp-json/wp/v2/media/${imageId}`);
+        const mediaResponse = await fetch(`https://psel-monks-analista-renanfochetto.local/wp-json/wp/v2/media/${imageId}`);
         const mediaData = await mediaResponse.json();
 
         setImageData({

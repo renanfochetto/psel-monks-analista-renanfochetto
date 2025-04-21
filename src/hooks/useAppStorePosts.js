@@ -9,7 +9,7 @@ const useAppStorePosts = () => {
   useEffect(() => {
     const fetchAppStore = async () => {
       try {
-        const response = await fetch('http://psel-monks-analista-renanfochetto.local/wp-json/wp/v2/appstore');
+        const response = await fetch('https://psel-monks-analista-renanfochetto.local/wp-json/wp/v2/appstore');
 
         if (!response.ok) {
           throw new Error('Erro ao buscar os posts do App Store');
@@ -47,7 +47,7 @@ const useAppStorePosts = () => {
 const fetchImageUrl = async (id) => {
   if (!id) return '';
   try {
-    const res = await fetch(`http://psel-monks-analista-renanfochetto.local/wp-json/wp/v2/media/${id}`);
+    const res = await fetch(`https://psel-monks-analista-renanfochetto.local/wp-json/wp/v2/media/${id}`);
     if (!res.ok) return '';
     const json = await res.json();
     return json.source_url;

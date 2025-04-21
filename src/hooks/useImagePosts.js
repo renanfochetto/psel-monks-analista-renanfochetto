@@ -9,7 +9,7 @@ const useImagePosts = () => {
   useEffect(() => {
     const fetchImagePosts = async () => {
       try {
-        const response = await fetch('http://psel-monks-analista-renanfochetto.local/wp-json/wp/v2/imagepost');
+        const response = await fetch('https://psel-monks-analista-renanfochetto.local/wp-json/wp/v2/imagepost');
 
         if (!response.ok) {
           throw new Error('Erro ao buscar os ImagePosts');
@@ -48,7 +48,7 @@ const getImageUrl = async (imageId) => {
   if (!imageId) return '';
 
   try {
-    const response = await fetch(`http://psel-monks-analista-renanfochetto.local/wp-json/wp/v2/media/${imageId}`);
+    const response = await fetch(`https://psel-monks-analista-renanfochetto.local/wp-json/wp/v2/media/${imageId}`);
 
     if (!response.ok) {
       console.error('Erro ao obter a URL da imagem');
