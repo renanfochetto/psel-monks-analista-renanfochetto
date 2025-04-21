@@ -10,10 +10,12 @@ function useHeaderData() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const baseURL = 'https://fly-plume.localsite.io/wp-json'; // Atualize para o Live Link
+
   useEffect(() => {
     const fetchHeaderData = async () => {
       try {
-        const response = await fetch('https://psel-monks-analista-renanfochetto.local/wp-json/custom/v1/header-nav');
+        const response = await fetch(`${baseURL}/custom/v1/header-nav`);
 
         if (!response.ok) {
           throw new Error('Erro na resposta da API');

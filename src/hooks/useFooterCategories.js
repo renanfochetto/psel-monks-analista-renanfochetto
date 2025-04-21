@@ -5,12 +5,12 @@ const useFooterCategories = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const baseURL = 'https://fly-plume.localsite.io/wp-json/wp/v2';
+
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch(
-          'https://psel-monks-analista-renanfochetto.local/wp-json/wp/v2/footercategory'
-        );
+        const response = await fetch(`${baseURL}/footercategory`);
 
         if (!response.ok) {
           throw new Error("Erro ao buscar categorias do rodapé.");
@@ -21,7 +21,7 @@ const useFooterCategories = () => {
         // Formata os dados para uso direto no componente
         const formattedCategories = data.map((item) => ({
           id: item.id,
-          title: item.acf.footercategories,
+          title: item.acf?.footercategories || '',
           link: item.link,
         }));
 

@@ -6,10 +6,12 @@ const useImagePosts = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const baseURL = 'https://fly-plume.localsite.io/wp-json'; // Atualize para o Live Link
+
   useEffect(() => {
     const fetchImagePosts = async () => {
       try {
-        const response = await fetch('https://psel-monks-analista-renanfochetto.local/wp-json/wp/v2/imagepost');
+        const response = await fetch(`${baseURL}/wp/v2/imagepost`);
 
         if (!response.ok) {
           throw new Error('Erro ao buscar os ImagePosts');
@@ -48,7 +50,7 @@ const getImageUrl = async (imageId) => {
   if (!imageId) return '';
 
   try {
-    const response = await fetch(`https://psel-monks-analista-renanfochetto.local/wp-json/wp/v2/media/${imageId}`);
+    const response = await fetch(`${baseURL}/wp/v2/media/${imageId}`);
 
     if (!response.ok) {
       console.error('Erro ao obter a URL da imagem');

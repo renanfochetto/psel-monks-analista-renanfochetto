@@ -8,7 +8,8 @@ const useSvgHook = () => {
   useEffect(() => {
     const fetchSvgs = async () => {
       try {
-        const response = await fetch('https://psel-monks-analista-renanfochetto.local/wp-json/wp/v2/svgfooter');
+        // Atualizando para o Live Link da API
+        const response = await fetch('https://fly-plume.localsite.io/wp-json/wp/v2/svgfooter');
 
         // Verifique se a resposta da API é válida
         if (!response.ok) {

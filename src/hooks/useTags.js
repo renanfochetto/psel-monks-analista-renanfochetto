@@ -8,7 +8,8 @@ const useTags = () => {
   useEffect(() => {
     const fetchTags = async () => {
       try {
-        const response = await fetch('https://psel-monks-analista-renanfochetto.local/wp-json/wp/v2/tagsection?per_page=100');
+        // Atualizando para o Live Link da API
+        const response = await fetch('https://fly-plume.localsite.io/wp-json/wp/v2/tagsection?per_page=100');
 
         // Verifica se a resposta da API foi bem-sucedida
         if (!response.ok) {

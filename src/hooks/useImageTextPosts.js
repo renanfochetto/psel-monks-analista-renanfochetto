@@ -6,10 +6,12 @@ function useImageTextPosts() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const baseURL = 'https://fly-plume.localsite.io/wp-json'; // Atualize para o Live Link
+
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch('https://psel-monks-analista-renanfochetto.local/wp-json/wp/v2/imagetextpost');
+        const response = await fetch(`${baseURL}/wp/v2/imagetextpost`);
         if (!response.ok) throw new Error('Erro ao carregar os posts.');
 
         const data = await response.json();
@@ -43,8 +45,11 @@ function useImageTextPosts() {
 
 // Função auxiliar para buscar a URL da imagem a partir do ID do ACF
 const fetchImageUrl = async (id) => {
+  if (!id) return '';
+
   try {
-    const response = await fetch(`https://psel-monks-analista-renanfochetto.local/wp-json/wp/v2/media/${id}`);
+    let baseURL = 'https://fly-plume.localsite.io/wp-json';
+    const response = await fetch(`${baseURL}/wp/v2/media/${id}`);
     if (!response.ok) throw new Error();
     const data = await response.json();
     return data.source_url || '';
