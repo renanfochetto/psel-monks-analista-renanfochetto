@@ -18,19 +18,16 @@ const useTextPosts = () => {
 
         const data = await response.json();
 
-        // Adiciona um console.log para verificar a resposta da API
-        console.log('Resposta da API:', data);
-
         // Verifica se os dados retornados são um array
         if (!Array.isArray(data)) {
           throw new Error('A resposta da API não contém um array de posts');
         }
 
-        // Formatação dos dados: acessando as informações do ACF
+        // Formatação dos dados: acessando as informações diretamente
         const formattedPosts = data.map(post => ({
           id: post.id,
-          title: post.acf?.texttitle || 'Título não disponível',  // Título do post
-          description: post.acf?.textdescription || 'Descrição não disponível'  // Descrição do post
+          title: post.texttitle || 'Título não disponível',  // Acesso direto ao título
+          description: post.textdescription || 'Descrição não disponível'  // Acesso direto à descrição
         }));
 
         setPosts(formattedPosts);
