@@ -11,7 +11,6 @@ const Form = () => {
     email: '',
     phone: '',
     cpf: '',
-    resultado: ''
   });
 
   const handleChange = (e) => {
@@ -31,7 +30,7 @@ const Form = () => {
     }
 
     try {
-      const response = await fetch('http://psel-monks-analista-renanfochetto.local/wp-json/custom/v1/submit-form', {
+      const response = await fetch('https://psel-backend.shop/wp-json/custom/v1/submit-form', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -41,7 +40,6 @@ const Form = () => {
           email: formData.email,
           phone: formData.phone,
           cpf: formData.cpf,
-          resultado: formData.resultado
         }),
       });
 
@@ -55,7 +53,6 @@ const Form = () => {
           email: '',
           phone: '',
           cpf: '',
-          resultado: ''
         });
         setValid(false);
         setFormKey(prev => prev + 1); // Força re-render do componente de validação
@@ -64,7 +61,8 @@ const Form = () => {
           className: 'toastError',
           icon: <span style={{ color: '#dfbbfe', fontWeight: 'bold' }}>✖</span>,
           progressClassName: 'toast-progress-bar',
-        });      }
+        });
+      }
     } catch (error) {
       toast.error(`Erro ao enviar o formulário: ${error.message || error.toString()}`, {
         className: 'toastError',
