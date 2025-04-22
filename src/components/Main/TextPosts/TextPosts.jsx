@@ -13,9 +13,9 @@ const TextPosts = () => {
       {posts.map(post => (
         <TextPost
           key={post.id}
-          title={post.acf.texttitle}
-          description={post.acf.textdescription}
-          aria-label={`Post: ${post.acf.texttitle}`}
+          title={post.title}
+          description={post.description}
+          aria-label={`Post: ${post.title}`}
         />
       ))}
     </section>
