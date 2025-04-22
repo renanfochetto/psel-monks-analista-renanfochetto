@@ -9,7 +9,7 @@ const useTags = () => {
     const fetchTags = async () => {
       try {
         // Atualizando para o Live Link da API
-        const response = await fetch('https://psel-backend.shop/wp-json/acf/v3/tagsection');
+        const response = await fetch('https://psel-backend.shop/wp-json/acf/v3/tagsection?per_page=100');
 
         // Verifica se a resposta da API foi bem-sucedida
         if (!response.ok) {
