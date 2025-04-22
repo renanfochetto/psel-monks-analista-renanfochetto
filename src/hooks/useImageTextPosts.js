@@ -14,17 +14,11 @@ function useImageTextPosts() {
 
         const data = await response.json();
 
-        // Formata os dados: busca a imagem associada a cada post via ACF
-        const formattedPosts = await Promise.all(data.map(async (post) => {
-          const imageId = post.acf?.imagecard;
-          const imageUrl = imageId ? await fetchImageUrl(imageId) : '';
-
-          return {
-            id: post.id,
-            title: post.acf?.titlecard || '',
-            description: post.acf?.descriptioncard || '',
-            image: imageUrl
-          };
+        const formattedPosts = data.map(post => ({
+          id: post.id,
+          title: post.acf?.titlecard || '',
+          description: post.acf?.descriptioncard || '',
+          image: post.acf?.imagecard?.url || ''
         }));
 
         setPosts(formattedPosts);
@@ -40,18 +34,5 @@ function useImageTextPosts() {
 
   return { posts, isLoading, error };
 }
-
-// Função auxiliar para buscar a URL da imagem a partir do ID do ACF
-const fetchImageUrl = async (id) => {
-  try {
-    const response = await fetch(`https://psel-backend.shop/wp-json/wp/v2/media/${id}`);
-    if (!response.ok) throw new Error();
-    const data = await response.json();
-    return data.source_url || '';
-  } catch {
-    console.error('Erro ao buscar imagem do post');
-    return '';
-  }
-};
 
 export default useImageTextPosts;
