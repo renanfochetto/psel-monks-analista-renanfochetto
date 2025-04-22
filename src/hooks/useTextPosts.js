@@ -23,12 +23,14 @@ const useTextPosts = () => {
           throw new Error('A resposta da API não contém um array de posts');
         }
 
-        // Formatação dos dados: acessando as informações diretamente
-        const formattedPosts = data.map(post => ({
-          id: post.id,
-          title: post.texttitle || 'Título não disponível',  // Acesso direto ao título
-          description: post.textdescription || 'Descrição não disponível'  // Acesso direto à descrição
-        }));
+        // Formatação dos dados: acessando as informações diretamente com verificações
+        const formattedPosts = data
+          .filter(post => post.texttitle && post.textdescription) // Garante que ambos os campos existam
+          .map(post => ({
+            id: post.id,
+            title: post.texttitle || 'Título não disponível', // Acesso direto ao título
+            description: post.textdescription || 'Descrição não disponível', // Acesso direto à descrição
+          }));
 
         setPosts(formattedPosts);
       } catch (err) {
