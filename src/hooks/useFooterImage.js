@@ -6,13 +6,13 @@ const useFooterImage = () => {
     alt: ''
   });
 
-  const baseURL = 'https://fly-plume.localsite.io/wp-json/wp/v2';
+  const baseURL = 'https://psel-backend.shop/wp-json/acf/v3'; // Atualizado para o endpoint ACF
 
   useEffect(() => {
     const fetchImage = async () => {
       try {
-        // Busca o primeiro item do CPT 'decorativeimage'
-        const response = await fetch(`${baseURL}/decorativeimage?per_page=1`);
+        // Busca o item do CPT 'decorativeimage'
+        const response = await fetch(`${baseURL}/decorativeimage`);
         const data = await response.json();
 
         if (!Array.isArray(data) || data.length === 0) return;
