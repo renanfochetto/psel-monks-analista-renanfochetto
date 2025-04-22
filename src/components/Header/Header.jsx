@@ -7,6 +7,9 @@ const Header = () => {
     title: '',
     description: '',
     scrollImage: '',
+    backgroundBig: '',
+    backgroundSmall: '',
+    logoMonks: '',
   });
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -15,13 +18,25 @@ const Header = () => {
   useEffect(() => {
     const fetchHeaderData = async () => {
       try {
-        const response = await fetch('http://psel-monks-analista-renanfochetto.local/wp-json/custom/v1/header-nav');
+        // Usar o endpoint correto com HTTPS
+        const response = await fetch('https://psel-backend.shop/wp-json/acf/v3/posts');
+
+        if (!response.ok) {
+          throw new Error('Erro ao carregar dados do header');
+        }
+
         const data = await response.json();
 
+        // Ajustando para acessar corretamente os dados (data[0].acf)
+        const headerInfo = data[0]?.acf;
+
         setHeaderData({
-          title: data.acf.headertitle,
-          description: data.acf.headerdescription,
-          scrollImage: data.acf.scrollimage_url,
+          title: headerInfo?.headertitle || '',
+          description: headerInfo?.headerdescription || '',
+          scrollImage: headerInfo?.scrollimage || '',
+          backgroundBig: headerInfo?.backgroundbig || '',
+          backgroundSmall: headerInfo?.backgroundsmall || '',
+          logoMonks: headerInfo?.logomonks || '',
         });
 
         setIsLoading(false);
