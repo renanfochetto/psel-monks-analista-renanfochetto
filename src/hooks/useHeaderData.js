@@ -4,18 +4,22 @@ function useHeaderData() {
   const [headerData, setHeaderData] = useState({
     title: '',
     description: '',
+    backgroundBig: '',
+    backgroundSmall: '',
     scrollImage: '',
+    logoMonks: '',
   });
 
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const baseURL = 'https://fly-plume.localsite.io/wp-json'; // Atualize para o Live Link
+  // Endpoint correto
+  const baseURL = 'https://psel-backend.shop/wp-json/acf/v3/posts';
 
   useEffect(() => {
     const fetchHeaderData = async () => {
       try {
-        const response = await fetch(`${baseURL}/custom/v1/header-nav`);
+        const response = await fetch(baseURL);
 
         if (!response.ok) {
           throw new Error('Erro na resposta da API');
@@ -23,11 +27,17 @@ function useHeaderData() {
 
         const data = await response.json();
 
-        // Atualiza os dados recebidos (imagens de fundo foram removidas da lógica)
+        // A estrutura de dados para o header vem dentro do campo `acf`
+        const headerInfo = data[0]?.acf;
+
+        // Atualiza os dados recebidos (agora incluindo os campos de imagem)
         setHeaderData({
-          title: data?.acf?.headertitle || '',
-          description: data?.acf?.headerdescription || '',
-          scrollImage: data?.acf?.scrollimage_url || ''
+          title: headerInfo?.headertitle || '',
+          description: headerInfo?.headerdescription || '',
+          backgroundBig: headerInfo?.backgroundbig || '',
+          backgroundSmall: headerInfo?.backgroundsmall || '',
+          scrollImage: headerInfo?.scrollimage || '',
+          logoMonks: headerInfo?.logomonks || '',
         });
       } catch (error) {
         console.error(error); // Log para debugging
