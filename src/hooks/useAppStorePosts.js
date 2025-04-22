@@ -17,14 +17,23 @@ const useAppStorePosts = () => {
 
         const data = await response.json();
 
+        // Verificação de estrutura dos dados recebidos (debugging)
+        console.log('Dados recebidos:', data);
+
         // Formata os dados recebidos, buscando as imagens por ID
         const formattedData = await Promise.all(data.map(async (post) => {
-          const imageUrl = await fetchImageUrl(post.acf.appstore);
+          // Verifica se post.title.rendered existe
+          const title = post.title?.rendered || 'Sem título';
+          // Verifica se post.acf.appstore existe
+          const imageUrl = post.acf?.appstore || '';
+          // Verifica se post.acf.appstorealt existe
+          const altText = post.acf?.appstorealt || title;  // Usa o título como alt se não houver descrição
+
           return {
             id: post.id,
-            title: post.title.rendered,
+            title,
             image: imageUrl,
-            alt: post.acf.appstorealt || post.title.rendered,
+            alt: altText,
             link: post.link // Considerar campo ACF se precisar de link específico
           };
         }));
