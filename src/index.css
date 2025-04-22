@@ -113,29 +113,29 @@ input:focus {
 }
 
 .customToast {
-  background-color: var(--secondary-color);
-  color: var(--primary-black);
-  font-family: var(--decorative-font), sans-serif;
-  font-size: 18px;
-  padding: 12px;
-  transition: opacity 0.3s ease;
+  background-color: var(--secondary-color) !important;
+  color: var(--primary-black) !important;
+  font-family: var(--decorative-font), sans-serif !important;
+  font-size: 18px !important;
+  padding: 12px !important;
+  transition: opacity 0.3s ease !important;
 }
 
 .toastError {
-  background-color: var(--primary-black);
-  color: var(--secondary-color);
-  font-family: var(--decorative-font), sans-serif;
-  font-size: 18px;
-  padding: 12px;
-  transition: opacity 0.3s ease;
+  background-color: var(--primary-black) !important;
+  color: var(--secondary-color) !important;
+  font-family: var(--decorative-font), sans-serif !important;
+  font-size: 18px !important;
+  padding: 12px !important;
+  transition: opacity 0.3s ease !important;
 }
 
 .customProgressBar {
-  background-color: var(--primary-black);
+  background-color: var(--primary-black) !important;
 }
 
 .toast-progress-bar {
-  background-color: var(--secondary-color);
+  background-color: var(--secondary-color) !important;
 }
 
 @media (max-width: 360px) {
