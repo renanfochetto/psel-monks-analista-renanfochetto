@@ -20,7 +20,6 @@ const FormValidation = ({ setValid }) => {
       setError('');
     } else {
       setValid(false); // Desabilita o botão
-      setError('Resposta incorreta. Tente novamente.');
     }
   }, [userInput, correctSum, setValid]);
 
