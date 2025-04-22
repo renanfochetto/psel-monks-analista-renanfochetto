@@ -21,8 +21,6 @@ const useFooterCategories = () => {
         const formattedCategories = data.map((item) => ({
           id: item.id,
           title: item.acf?.footercategories || '',
-          // Se quiser, você pode construir um link fake tipo /categoria/{id}:
-          link: `/categoria/${item.id}`
         }));
 
         setCategories(formattedCategories);
