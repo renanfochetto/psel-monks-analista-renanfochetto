@@ -66,13 +66,13 @@ Editar
 📜 Validação do Formulário
 O formulário inclui validação dos seguintes campos:
 
-✅ Nome: Apenas letras, mínimo de 3 caracteres
+✅ Nome: Apenas letras, mínimo de 3 caracteres.
 
-✅ E-mail: Formato válido (usuario@dominio.com)
+✅ E-mail: Formato válido (usuario@dominio.com).
 
-✅ Telefone: Formatos nacionais e internacionais (+55 11 99999-9999)
+✅ Telefone: Formatos nacionais e internacionais (+55 11 99999-9999).
 
-✅ CPF: Padrão 000.000.000-00
+✅ CPF: Padrão 000.000.000-00.
 
 ✅ Campo Matemático: O usuário deve resolver um cálculo simples antes do envio.
 
