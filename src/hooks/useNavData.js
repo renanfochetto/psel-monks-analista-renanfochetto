@@ -12,24 +12,23 @@ function useNavData(pageId) {
       try {
         // Requisição para obter as categorias
         const categoriesResponse = await axios.get(
-          'https://psel-monks-analista-renanfochetto.local/wp-json/wp/v2/categories'
+          'https://psel-backend.shop/wp-json/wp/v2/categories'
         );
         setCategories(categoriesResponse.data);
 
-        // Requisição para obter a logo a partir da página
+        // Requisição para obter a logo da página (ajuste a pageId conforme necessário)
         const pageResponse = await axios.get(
-          `https://psel-monks-analista-renanfochetto.local/wp-json/wp/v2/pages/${pageId}`
+          `https://psel-backend.shop/wp-json/wp/v2/pages/${pageId}`
         );
 
-        // Extrai o conteúdo da página
         const content = pageResponse.data.content.rendered;
 
-        // Utiliza expressão regular para encontrar a URL da imagem (logo)
+        // Regex para extrair URL da imagem
         const regex = /<img.*?src="(.*?)"/;
         const match = content.match(regex);
 
         if (match) {
-          setLogoUrl(match[1]); // Define a URL da imagem encontrada
+          setLogoUrl(match[1]);
         }
 
         setIsLoading(false);
@@ -41,7 +40,6 @@ function useNavData(pageId) {
     };
 
     fetchNavData();
-
   }, [pageId]);
 
   return { categories, logoUrl, isLoading, error };
