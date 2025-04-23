@@ -95,7 +95,7 @@ O formulário inclui validação dos seguintes campos:
 1️⃣ Clone o repositório:
 
 ```
-git clone https://github.com/seu_usuario/psel-monks-analista-renanfochetto.git
+git clone https://github.com/renanfochetto/psel-monks-analista-renanfochetto.git
 ```
 
 2️⃣ Acesse a pasta do projeto:
@@ -153,3 +153,4 @@ fetch('https://psel-backend.shop/wp-json/acf/v3/posts')
 Em caso de dúvidas ou suporte, entre em contato com a equipe de desenvolvimento:
 
 ### Email: renandfochetto@gmail.com
+### Portifolio: portifolio-renanfochetto.vercel.app/
